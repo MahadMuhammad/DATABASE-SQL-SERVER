@@ -17,7 +17,7 @@ CREATE TABLE Event (
     type VARCHAR(15) NOT NULL,
     start_date DATE ,
     start_time TIME ,
-    end_data DATE,
+    end_date DATE,
     end_time TIME,
 );
 SELECT * FROM Event;
