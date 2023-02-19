@@ -11,10 +11,10 @@
 CREATE DATABASE EventDB;
 
 CREATE TABLE Event (
-    EID INT NOT NULL PRIMARY KEY,
+    EID INT PRIMARY KEY,
     Ename VARCHAR(50) NOT NULL,
-    location VARCHAR(50) NOT NULL,
-    type VARCHAR(15) NOT NULL,
+    location VARCHAR(50),
+    type VARCHAR(15) ,
     start_date DATE ,
     start_time TIME ,
     end_date DATE,
@@ -25,15 +25,15 @@ SELECT * FROM Event;
 
 -- TABLE 2
 CREATE TABLE Organization (
-    OID INT NOT NULL PRIMARY KEY,
+    OID INT PRIMARY KEY,
     Oname VARCHAR(50) NOT NULL,
-    address VARCHAR(50)
+    address VARCHAR(25)
 );
 SELECT * FROM Organization;
 
 -- TABLE 3
 CREATE TABLE Participants(
-    PID INT NOT NULL PRIMARY KEY,
+    PID INT PRIMARY KEY,
     Pname VARCHAR(50) NOT NULL,
     bdate DATE,
     gender CHAR(1),
@@ -43,7 +43,7 @@ SELECT * FROM Participants;
 
 -- TABLE 4
 CREATE TABLE Sponsors(
-    EID INT NOT NULL,
+    EID INT ,
     OID INT ,
     amount DECIMAL ,
     PRIMARY KEY(EID, OID),
@@ -56,6 +56,7 @@ SELECT * FROM Sponsors;
 CREATE TABLE Attended(
     PID INT ,
     EID INT ,
+    PRIMARY KEY(PID, EID),  -- Here primary key is a composite key
     FOREIGN KEY (PID) REFERENCES Participants(PID) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (EID) REFERENCES Event(EID) ON DELETE CASCADE ON UPDATE CASCADE
 );
