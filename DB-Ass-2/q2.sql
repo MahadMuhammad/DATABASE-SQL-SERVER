@@ -1,3 +1,4 @@
+-- Muhammad Mahad 21L-6195
 -- Event (EID, Ename, location, type, start_date, start_time, end_date, end_time)
 -- Organization (OID, Oname, address)
 -- Participants (PID, Pname, bdate, gender, OID)
@@ -17,6 +18,8 @@ INSERT INTO Event VALUES
 SELECT * FROM Event;
 --DELETE FROM Event WHERE EID = 2;
 
+
+------------------------------------------------------------------------------------
 -- TABLE 2
 INSERT INTO Organization VALUES 
 (1,'SOFTEC','FAST,lahore'),
@@ -26,6 +29,7 @@ INSERT INTO Organization VALUES
 (5,'XYZ','FAST,lahore');
 SELECT * FROM Organization;
 
+------------------------------------------------------------------------------------
 -- TABLE 3
 INSERT INTO Participants VALUES 
 (1,'Hashim','2002-08-10','M',1),
@@ -36,6 +40,7 @@ INSERT INTO Participants VALUES
 (6,'Hania','2002-08-10','F',NULL);
 SELECT * FROM Participants;
 
+------------------------------------------------------------------------------------
 -- TABLE 4
 INSERT INTO Sponsors VALUES 
 (1,1,5000),
@@ -46,6 +51,7 @@ INSERT INTO Sponsors VALUES
 (2,3,9000);
 SELECT * FROM Sponsors;
 
+------------------------------------------------------------------------------------
 -- TABLE 5
 INSERT INTO Attended VALUES 
 (1,1),

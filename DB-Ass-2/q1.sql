@@ -1,3 +1,4 @@
+-- Muhammad Mahad 21L-6195
 -- Event (EID, Ename, location, type, start_date, start_time, end_date, end_time)
 -- Organization (OID, Oname, address)
 -- Participants (PID, Pname, bdate, gender, OID)
@@ -23,6 +24,7 @@ CREATE TABLE Event (
 SELECT * FROM Event;
 -- DROP TABLE Event;
 
+------------------------------------------------------------
 -- TABLE 2
 CREATE TABLE Organization (
     OID INT PRIMARY KEY,
@@ -31,6 +33,7 @@ CREATE TABLE Organization (
 );
 SELECT * FROM Organization;
 
+------------------------------------------------------------
 -- TABLE 3
 CREATE TABLE Participants(
     PID INT PRIMARY KEY,
@@ -41,6 +44,7 @@ CREATE TABLE Participants(
 );
 SELECT * FROM Participants;
 
+------------------------------------------------------------
 -- TABLE 4
 CREATE TABLE Sponsors(
     EID INT ,
@@ -52,6 +56,7 @@ CREATE TABLE Sponsors(
 );
 SELECT * FROM Sponsors;
 
+------------------------------------------------------------
 -- TABLE 5
 CREATE TABLE Attended(
     PID INT ,
