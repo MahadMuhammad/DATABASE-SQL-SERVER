@@ -1,41 +1,3 @@
-CREATE TABLE Event (
-  EID int PRIMARY KEY,
-  Ename varchar(255),
-  location varchar(255),
-  type varchar(255),
-  start_date date,
-  start_time time,
-  end_date date,
-  end_time time
-);
-
-CREATE TABLE Organization (
-  OID int PRIMARY KEY,
-  Oname varchar(255),
-  address varchar(255)
-);
-
-CREATE TABLE Participants (
-  PID int PRIMARY KEY,
-  Pname varchar(255),
-  bdate date,
-  gender varchar(255),
-  OID int NULL REFERENCES Organization(OID)
-);
-
-CREATE TABLE Sponsors (
-  EID int REFERENCES Event(EID),
-  OID int REFERENCES Organization(OID),
-  amount int,
-  PRIMARY KEY (EID, OID)
-);
-
-CREATE TABLE Attended (
-  PID int REFERENCES Participants(PID),
-  EID int REFERENCES Event(EID),
-  PRIMARY KEY (PID, EID)
-);
-
 -- INSERT SAMPLE DATA
 
 INSERT INTO Event (EID, Ename, location, type, start_date, start_time, end_date, end_time)
@@ -53,6 +15,7 @@ VALUES
   (2, 'Google', 'Mountain View'),
   (3, 'Microsoft', 'Redmond'),
   (4, 'Amazon', 'Seattle');
+  (5,'FAST','Faisal Town,lahore');
 
 INSERT INTO Participants (PID, Pname, bdate, gender, OID)
 VALUES
@@ -65,7 +28,33 @@ VALUES
 
 INSERT INTO Sponsors (EID, OID, amount)
 VALUES
-  (1, 1, 1000),
-  (2, 2, 2000),
- 
+  (1  ,1, 1000),
+  (2  ,2, 2000),
+  (3  ,3, 3000),
+  (4  ,5, 4000),
+  (5  ,3, 7000),
+  (2  ,3, 9000);
 
+  INSERT INTO Attended VALUES 
+(1,1),
+(1,4),
+(1,2),
+(1,3),
+(1,5),
+(3,4),
+(4,1),
+(5,1);
+SELECT * FROM Attended;
+  
+
+--DROP TABLE Event;
+--DROP TABLE Organization;
+--DROP TABLE Participants;
+--DROP TABLE Sponsors;
+--DROP TABLE Attended;
+
+SELECT * FROM Event ;
+SELECT * FROM  Organization;
+SELECT * FROM  Participants;
+SELECT * FROM  Sponsors;
+SELECT * FROM Attended ;
