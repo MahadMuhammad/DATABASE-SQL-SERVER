@@ -28,7 +28,7 @@ DROP VIEW org_sponsor_info_v;
 -- C. Create a trigger that prints a message when an Organization sponsor more than 100000 for an 
 -- event. 
 CREATE TRIGGER sponsor_amount_trigger ON Sponsors
-AFTER INSERT
+AFTER INSERT -- Didn't use AFTER UPDATE because it will be triggered when the amount is updated to more than 100000
 AS
 	IF EXISTS (SELECT * FROM inserted WHERE amount > 100000 )
 	BEGIN
