@@ -1,0 +1,56 @@
+ public int SearchItem(String Name, ref DataTable DT)
+        {
+
+            int Found=0;
+            DataSet ds = new DataSet();
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+            SqlCommand cmd;
+            try
+            {
+                cmd = new SqlCommand("searchitem ", con); //name of your procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@ItemName", SqlDbType.VarChar, 15);
+                cmd.Parameters.Add("@Found", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                // set parameter values
+                cmd.Parameters["@ItemName"].Value = Name;
+
+
+                cmd.ExecuteNonQuery();
+
+                // read output value 
+                Found = Convert.ToInt32(cmd.Parameters["@Found"].Value); //convert to output parameter to interger format
+
+                if (Found == 1)
+                {
+                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                
+                     {
+                    da.Fill(ds);
+               
+                     }
+                    
+                    DT = ds.Tables[0];
+
+                 }
+                
+
+                con.Close();
+
+               
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return Found;
+
+        }

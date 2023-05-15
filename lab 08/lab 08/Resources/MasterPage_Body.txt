@@ -1,0 +1,30 @@
+
+    <form id="form1" runat="server">
+    <div>
+        <div id="header">
+            <div id="logo">
+                <h1>
+                    <a href="#">SnowGlass</a></h1>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li class="active"><a href="Home.aspx" accesskey="1" title="">Home</a></li>
+                    <li><a href="Search.aspx" accesskey="2" title="">Search</a></li>
+                    <li><a href="#" accesskey="3" title="">About</a></li>
+                    <li><a href="#" accesskey="4" title="">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr />
+        <div id="page">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!--Footer></!-->
+        <div id="footer">
+            <p>
+                (c) 2017 YourSite.com. All rights reserved. Design by <a href="http://www.nodethirtythree.com/">
+                    NodeThirtyThree</a> and <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+        </div>
+    </div>
+    </form>
