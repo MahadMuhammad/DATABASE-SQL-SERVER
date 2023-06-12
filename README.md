@@ -389,3 +389,32 @@ However, SCOPE_IDENTITY returns the value only within the current scope; @@IDENT
 IDENT_CURRENT is not limited by scope and session; it is limited to a specified table. IDENT_CURRENT returns the identity value generated for a specific table in any session and any scope. For more information, see IDENT_CURRENT.
 
 Identity doesn’t guarantee uniqueness. If you want that, make a PK or add a unique index.
+
+### Trigger
+```SQL
+CREATE TRIGGER TrackRetiredProducts
+ON Products
+AFTER DELETE
+AS
+INSERT INTO RetiredProducts (Product, Measure)
+SELECT Product, Measure
+FROM deleted;
+```
+### Stored Procedure CREATE
+```SQL
+CREATE PROCEDURE dbo.uspGetAddress @City nvarchar(30)
+AS
+SELECT * FROM Person.Address WHERE City = @City
+```
+### Stored Procedure EXECUTE
+```SQL
+Declare @ReturnValue as int
+Declare @RowCount as int
+EXEC @ReturnValue =
+dbo.cusp_
+TripSummaryDelete
+@TripDate = '1/5/2017',
+@RowCountOut = @RowCount OUTPUT
+Select @ReturnValue as ReturnValue,
+@RowCount as RowCount
+```
